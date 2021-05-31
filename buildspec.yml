@@ -29,5 +29,5 @@ phases:
 artifacts:
     files:
         - '**/*'
-    base-directory: 'dist/hello-world'
+    base-directory: 'dist/hello-world/*'
     discard-paths: yes
