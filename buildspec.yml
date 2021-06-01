@@ -20,7 +20,7 @@ phases:
 
     post_build:
         commands:
-        - aws s3 cp dist s3://helloworld-server --recursive
+        - aws s3 cp dist arn:aws:s3:::helloworld-server --recursive
         - echo Build completed on `date`
 
 artifacts:
