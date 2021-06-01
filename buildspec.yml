@@ -4,15 +4,10 @@ env:
         CACHE_CONTROL: "86400"
         S3_BUCKET: "{{s3_bucket_url}}"
         BUILD_FOLDER: "dist"
-
-APP_NAME: "Hello World"
+        BUILD_ENV: "prod"
 
 phases:
     install:
-        runtime-versions:
-        nodejs: 14
-
-    pre_build:
         commands:
             - echo installing dependencies...
             - npm i -g @angular/cli
@@ -20,8 +15,8 @@ phases:
 
     build:
         commands:
-            - echo Build started
-            - ng build 
+            - echo Build started on `date`
+            - ng build --${BUILD_ENV}
 
     post_build:
         commands:
