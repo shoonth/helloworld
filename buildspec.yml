@@ -8,6 +8,8 @@ env:
 
 phases:
     install:
+        runtime-versions:
+            nodejs: 14
         commands:
             - echo installing dependencies...
             - npm i -g @angular/cli
@@ -17,11 +19,6 @@ phases:
         commands:
             - echo Build started on `date`
             - ng build --${BUILD_ENV}
-
-    post_build:
-        commands:
-        - aws s3 cp dist s3://${S3_BUCKET}/ --recursive
-        - echo Build completed on `date`
 
 artifacts:
     files:
